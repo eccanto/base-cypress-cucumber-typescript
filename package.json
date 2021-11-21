@@ -1,0 +1,60 @@
+{
+  "name": "bdd-cypress-cucumber-typescript-example",
+  "version": "1.0.0",
+  "description": "BDD, Cypress + Cucumber + Typescript",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "pretest": "rm -rf cypress/cucumber-json cypress/screenshots cypress/videos",
+    "test": "cypress run --spec \"**/*.feature\"",
+    "tag:smoke": "./node_modules/.bin/cypress-tags run -e TAGS='@smoke'",
+    "bundled:all": "cypress run --spec **/*.features",
+    "lint:eslint": "eslint . --ext .ts,.js,.json",
+    "lint:eslint:fix": "npm run lint:eslint -- --fix",
+    "lint:tsc": "tsc -p .",
+    "lint": "npm run lint:eslint; npm run lint:tsc"
+  },
+  "keywords": [
+    "BDD",
+    "cucumber",
+    "cypress",
+    "qa",
+    "testing",
+    "typescript"
+  ],
+  "author": {
+    "name": "Erik Ccanto",
+    "email": "ccanto.erik@gmail.com",
+    "url": "https://github.com/eccanto"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^9.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.0",
+    "tsify": "^5.0.4",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "@types/node": "^16.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsonc": "^2.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
