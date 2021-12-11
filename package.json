@@ -30,10 +30,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cypress": "^9.0.0",
-    "cypress-cucumber-preprocessor": "^4.3.0",
+    "cypress": "^9.1.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "tsify": "^5.0.4",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   },
   "devDependencies": {
     "@cypress/browserify-preprocessor": "^3.0.2",
@@ -49,7 +49,8 @@
     "eslint-plugin-promise": "^5.1.1"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/integration/step_definitions/",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "cypress/cucumber-json",
