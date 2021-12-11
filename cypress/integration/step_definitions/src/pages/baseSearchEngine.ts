@@ -16,9 +16,10 @@ export default class BaseSearchEngine {
         }
     }
 
-    load() {
+    load(): BaseSearchEngine {
         cy.visit(this._url);
         cy.get('body').should('be.visible');
+        return this;
     }
 
     fillSearch(text: string) {
