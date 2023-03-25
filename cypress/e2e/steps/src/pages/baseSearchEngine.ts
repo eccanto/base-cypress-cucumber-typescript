@@ -16,21 +16,20 @@ export default class BaseSearchEngine {
     }
   }
 
-  load(): BaseSearchEngine {
+  load(): void {
     cy.visit(this._url)
     cy.get('body').should('be.visible')
-    return this
   }
 
-  fillSearch(text: string) {
+  fillSearch(text: string): void {
     cy.get(this._inputSearch).should('be.visible').type(text)
   }
 
-  search() {
+  search(): void {
     cy.get(this._btnSearch).should('be.visible').click()
   }
 
-  resultText(callback: (text: string) => void) {
+  resultText(callback: (text: string) => void): void {
     cy.get(this._resultSearch, { timeout: 20000 }).then(($elem) => {
       callback($elem.text())
     })

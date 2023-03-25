@@ -7,7 +7,7 @@ async function setupNodeEvents(
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
 ): Promise<Cypress.PluginConfigOptions> {
-  await addCucumberPreprocessorPlugin(on, config);
+  await addCucumberPreprocessorPlugin(on, config)
 
   on(
     'file:preprocessor',
@@ -16,7 +16,7 @@ async function setupNodeEvents(
     })
   )
 
-  return config;
+  return config
 }
 
 export default defineConfig({

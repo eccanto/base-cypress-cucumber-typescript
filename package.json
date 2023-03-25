@@ -1,5 +1,5 @@
 {
-  "name": "bdd-cypress-cucumber-typescript-example",
+  "name": "base-cypress-cucumber-typescript",
   "version": "1.0.0",
   "description": "BDD, Cypress + Cucumber + Typescript",
   "main": "",
@@ -10,10 +10,8 @@
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",
     "bundled:all": "cypress run --spec **/*.features",
-    "lint:eslint": "eslint . --ext .ts,.js,.json",
-    "lint:eslint:fix": "npm run lint:eslint -- --fix",
-    "lint:tsc": "tsc -p .",
-    "lint": "npm run lint:eslint; npm run lint:tsc"
+    "lint": "eslint . --ext .ts,.js,.json",
+    "lint:fix": "npm run lint:eslint -- --fix"
   },
   "keywords": [
     "BDD",
@@ -32,8 +30,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "cypress": "^12.8.1",
-    "typescript": "^5.0.2"
+    "cypress": "^12.8.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.7",
@@ -43,19 +40,14 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsonc": "^2.7.0",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint-plugin-promise": "^6.1.1",
+    "typescript": "^5.0.2"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": [
       "cypress/e2e/steps/**/*.ts"
-    ],
-    "cucumberJson": {
-      "generate": true,
-      "outputFolder": "cypress/cucumber-json",
-      "filePrefix": "",
-      "fileSuffix": ".cucumber"
-    }
-  }
+    ]  }
 }
