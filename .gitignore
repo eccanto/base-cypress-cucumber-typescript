@@ -14,3 +14,4 @@ cypress/cucumber-json
 
 # Cucumber
 cucumber-report.html
+cucumber-messages.ndjson

@@ -53,6 +53,10 @@ npm test
   ✔  All specs passed!                       00:10        3        3        -        -        -
 ```
 
+**HTML report**:
+
+![Output](./documentation/images/report_html.png "Report")
+
 ## Running tagged tests
 
 ### Running tagged smoke tests
