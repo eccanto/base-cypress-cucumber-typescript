@@ -10,7 +10,9 @@
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",
     "bundled:all": "cypress run --spec **/*.features",
-    "lint": "eslint . --ext .ts,.js,.json",
+    "lint:eslint": "eslint .",
+    "lint:tsc": "tsc --noEmit",
+    "lint": "npm run lint:eslint; npm run lint:tsc",
     "lint:fix": "npm run lint:eslint -- --fix"
   },
   "keywords": [
@@ -49,5 +51,9 @@
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": [
       "cypress/e2e/steps/**/*.ts"
-    ]  }
+    ],
+    "html": {
+      "enabled": true
+    }
+  }
 }
