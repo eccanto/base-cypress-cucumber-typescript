@@ -1,9 +1,9 @@
-@ecosia
-Feature: Search engine on the Ecosia website
+@duckduckgo
+Feature: Search engine on the Duckduckgo website
 
   Background:
-    Given I go to the Ecosia page
-    And I see "Ecosia" in the title
+    Given I go to the Duckduckgo page
+    And I see "DuckDuckGo" in the title
 
   @smoke
   Scenario: Using the search input with the text "smoke test"
@@ -17,6 +17,6 @@ Feature: Search engine on the Ecosia website
     Then the text "<expected_text>" should be visible on the result page on the Search Engine page
 
     Examples:
-      | search_text | expected_text  |
-      | cypress     | cypress.io     |
-      | javascript  | JavaScript.com |
+      | search_text | expected_text |
+      | cypress     | cypress.io    |
+      | javascript  | JavaScript    |

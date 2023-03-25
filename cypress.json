@@ -1,4 +1,0 @@
-{
-  "ignoreTestFiles": "*.ts",
-  "testFiles": ["**/*.{feature,features}"]
-}

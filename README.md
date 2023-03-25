@@ -16,7 +16,6 @@ Basic example of using Cypress with Cucumber (BDD). This `Gherkin` example inclu
   * [Running tagged tests](#running-tagged-tests)
     * [Running tagged smoke tests](#running-tagged-smoke-tests)
     * [Running using customized tags](#running-using-customized-tags)
-  * [Bundled features files](#bundled-features-files)
   * [Running tests manually](#running-tests-manually)
 * [Static code analysis tools](#static-code-analysis-tools)
   * [How to run the tools](#how-to-run-the-tools)
@@ -49,14 +48,10 @@ npm test
 ```bash
     Spec                                              Tests  Passing  Failing  Pending  Skipped
 ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ ✔  web/Duckduckgo.feature                  00:20        3        3        -        -        -  │
-├────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ✔  web/Ecosia.feature                      00:40        3        3        -        -        -  │
+│ ✔  web/Duckduckgo.feature                  00:10        3        3        -        -        -  │
 └────────────────────────────────────────────────────────────────────────────────────────────────┘
-  ✔  All specs passed!                       01:00        6        6        -        -        -
+  ✔  All specs passed!                       00:10        3        3        -        -        -
 ```
-
-![Output](./images/general_output.png "VSCode Side Bar")
 
 ## Running tagged tests
 
@@ -70,48 +65,10 @@ npm run tag:smoke
 ### Running using customized tags
 
 ```bash
-./node_modules/.bin/cypress-tags run -e TAGS='@smoke and @ecosia'
+npx cypress run --env tags="@smoke and @duckduckgo"
 ```
 
-*more details*: [running-tagged-tests](https://www.npmjs.com/package/cypress-cucumber-preprocessor#running-tagged-tests)
-
-## Bundled features files
-
-When running Cypress tests in a headless mode, the execution time can get pretty bloated, this
-happens because by default Cypress will relaunch the browser between every feature file. The
-**cypress-cucumber-preprocessor** gives you the option to bundle all feature files before running
-the tests, therefore reducing the execution time.
-
-You can take advantage of this by creating `.features` files. You choose to have only one in the root
-of the directory `cypress/integrations` or per directory.
-
-You also have to add support for `.features` files to your Cypress configuration
-
-*cypress.json*
-
-```json
-{
-  "testFiles": ["**/*.{feature,features}"]
-}
-```
-
-To run the bundled tests:
-
-```bash
-npm run bundled:all  # cypress run --spec **/*.features
-```
-
-**`output`**: only one output is generated for all `.feature` files found.
-
-```bash
-    Spec                                              Tests  Passing  Failing  Pending  Skipped
-┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ ✔  All.features                            00:57        6        6        -        -        -  │
-└────────────────────────────────────────────────────────────────────────────────────────────────┘
-  ✔  All specs passed!                       00:57        6        6        -        -        -
-```
-
-![Output](./images/bundled_output.png "VSCode Side Bar")
+*more details*: [tags](https://github.com/badeball/cypress-cucumber-preprocessor/blob/master/docs/tags.md)
 
 # Running tests manually
 
@@ -120,9 +77,6 @@ Open **`Cypress`** and run the tests manually:
 ```bash
 npm run cypress:open
 ```
-
-![Output](./images/cypress_ui.png "Cypress UI")
-
 
 # Static code analysis tools
 

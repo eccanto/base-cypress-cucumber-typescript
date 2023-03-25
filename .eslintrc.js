@@ -36,4 +36,4 @@ module.exports = {
         cy: 'readonly',
         expect: 'readonly'
     }
-};
+}
