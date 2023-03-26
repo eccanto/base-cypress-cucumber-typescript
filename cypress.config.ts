@@ -1,7 +1,8 @@
 import { defineConfig } from 'cypress'
-import createBundler from '@bahmutov/cypress-esbuild-preprocessor'
+import webpack from '@cypress/webpack-preprocessor'
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
-import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild'
+import webpackOptions from './webpack.config'
+
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
@@ -11,8 +12,8 @@ async function setupNodeEvents(
 
   on(
     'file:preprocessor',
-    createBundler({
-      plugins: [createEsbuildPlugin(config)],
+    webpack({
+      webpackOptions: webpackOptions(config),
     })
   )
 
