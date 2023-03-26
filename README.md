@@ -120,10 +120,6 @@ Check the types and validate the code using TypeScript without compilation.
 npm run lint:tsc
 ```
 
-# Issues
-
-*github*: [see full list](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor/issues)
-
 # License
 
 [MIT](./LICENSE)

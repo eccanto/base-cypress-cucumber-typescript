@@ -1,20 +1,9 @@
-/**
- * Abstract Class BaseSearchEngine.
- *
- * @class BaseSearchEngine
-*/
-export default class BaseSearchEngine {
-  protected _url!: string
+export default class DuckduckgoPage {
+  private _url = 'https://duckduckgo.com/'
 
-  protected _inputSearch!: string
-  protected _btnSearch!: string
-  protected _resultSearch!: string
-
-  constructor() {
-    if (this.constructor === BaseSearchEngine) {
-      throw new Error("Abstract classes can't be instantiated.")
-    }
-  }
+  private _inputSearch = '#search_form_input_homepage'
+  private _btnSearch = '#search_button_homepage'
+  private _resultSearch = '#links'
 
   load(): void {
     cy.visit(this._url)
