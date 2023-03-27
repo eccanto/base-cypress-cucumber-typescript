@@ -5,11 +5,9 @@
   "main": "",
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "pretest": "rm -rf cypress/cucumber-json cypress/screenshots cypress/videos",
+    "pretest": "rm -rf cypress/screenshots cypress/videos",
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",
-    "bundled:all": "cypress run --spec **/*.features",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
     "lint": "npm run lint:eslint; npm run lint:tsc",
