@@ -1,22 +1,23 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-
-import DuckDuckGoPage from './src/pages/DuckduckgoPage'
+import HomePage from '../../src/pages/duckduckgo/HomePage'
+import SearchPage from '../../src/pages/duckduckgo/SearchPage'
 
 Given('I go to the Duckduckgo page', function () {
-  this.browser = new DuckDuckGoPage()
-  this.browser.load()
+    this.home_page = new HomePage()
+    this.home_page.open()
 })
 
 Given('I fill the search input with the {string} term on the Search Engine page', function (text: string) {
-  this.browser.fillSearch(text)
+    this.home_page.fillSearch(text)
 })
 
 When('I click on the search button on the Search Engine page', function () {
-  this.browser.search()
+    this.home_page.search()
 })
 
 Then('the text {string} should be visible on the result page on the Search Engine page', function (text: string) {
-  this.browser.resultText((elemText: string) => {
-    expect(elemText).contains(text)
-  })
+    this.search_page = new SearchPage()
+    this.search_page.resultContain((elemText: string) => {
+        expect(elemText).contains(text)
+    })
 })
