@@ -1,8 +1,8 @@
 export default class HomePage {
-    private BASE_URL = 'https://duckduckgo.com/'
+    private readonly BASE_URL = 'https://duckduckgo.com/'
 
-    private CSS_INPUT_SEARCH = '#searchbox_input'
-    private CSS_BUTTON_SEARCH = '#searchbox_homepage button[type="submit"]'
+    private readonly CSS_INPUT_SEARCH = '#searchbox_input'
+    private readonly CSS_BUTTON_SEARCH = '#searchbox_homepage button[type="submit"]'
 
     open(): void {
         cy.visit(this.BASE_URL)
